@@ -1,0 +1,177 @@
+VERSION 5.00
+Begin VB.Form frmmain 
+   Caption         =   "Main"
+   ClientHeight    =   7620
+   ClientLeft      =   120
+   ClientTop       =   450
+   ClientWidth     =   9765
+   LinkTopic       =   "Form1"
+   ScaleHeight     =   7620
+   ScaleWidth      =   9765
+   StartUpPosition =   3  'Windows Default
+   Begin VB.CommandButton cmdcos 
+      Caption         =   "Calculate Cost "
+      Height          =   855
+      Left            =   5640
+      TabIndex        =   7
+      Top             =   4320
+      Width           =   2775
+   End
+   Begin VB.Frame Frame1 
+      Caption         =   "Meal Plan?"
+      Height          =   975
+      Left            =   720
+      TabIndex        =   4
+      Top             =   5760
+      Width           =   2895
+      Begin VB.OptionButton Option2 
+         Caption         =   "No"
+         Height          =   615
+         Left            =   1560
+         TabIndex        =   6
+         Top             =   240
+         Width           =   1215
+      End
+      Begin VB.OptionButton Option1 
+         Caption         =   "Yes"
+         Height          =   375
+         Left            =   360
+         TabIndex        =   5
+         Top             =   360
+         Width           =   1215
+      End
+   End
+   Begin VB.ComboBox cmblength 
+      Height          =   315
+      ItemData        =   "frmmain.frx":0000
+      Left            =   960
+      List            =   "frmmain.frx":0013
+      TabIndex        =   3
+      Text            =   "Length of travel?"
+      Top             =   3120
+      Width           =   2535
+   End
+   Begin VB.ListBox lsthotel 
+      Height          =   645
+      ItemData        =   "frmmain.frx":0051
+      Left            =   960
+      List            =   "frmmain.frx":005E
+      TabIndex        =   2
+      Top             =   2040
+      Width           =   2535
+   End
+   Begin VB.CommandButton cmdplace 
+      Caption         =   "Confirm"
+      Height          =   615
+      Left            =   1320
+      TabIndex        =   1
+      Top             =   960
+      Width           =   1815
+   End
+   Begin VB.ComboBox cmbplace 
+      Height          =   315
+      ItemData        =   "frmmain.frx":0081
+      Left            =   960
+      List            =   "frmmain.frx":0094
+      TabIndex        =   0
+      Text            =   "Destination"
+      Top             =   240
+      Width           =   2775
+   End
+   Begin VB.Label lbl1 
+      Alignment       =   2  'Center
+      Height          =   855
+      Left            =   5400
+      TabIndex        =   8
+      Top             =   5400
+      Width           =   3255
+   End
+   Begin VB.Image Image1 
+      Height          =   1695
+      Left            =   5640
+      Top             =   360
+      Width           =   2655
+   End
+End
+Attribute VB_Name = "frmmain"
+Attribute VB_GlobalNameSpace = False
+Attribute VB_Creatable = False
+Attribute VB_PredeclaredId = True
+Attribute VB_Exposed = False
+Dim x As Integer
+    Dim y As Integer
+        Dim i As Integer
+            Dim m As Integer
+                Dim t As Integer
+
+
+Private Sub cmdcos_Click()
+
+t = (x + y + m) * i
+lbl1.Caption = t
+
+End Sub
+
+Private Sub cmdplace_Click()
+If cmbplace.Text = "USA" Then
+Image1.Picture = LoadPicture(App.Path & "\Florida.gif")
+x = 1000
+End If
+
+    
+    If cmbplace.Text = "France" Then
+    Image1.Picture = LoadPicture(App.Path & "\France.gif")
+    x = 1050
+    End If
+        
+        If cmbplace.Text = "Caribbean" Then
+        Image1.Picture = LoadPicture(App.Path & "\Carribean.gif")
+        x = 1100
+        End If
+            
+            If cmbplace.Text = "England" Then
+            Image1.Picture = LoadPicture(App.Path & "\England copy.gif")
+            x = 1560
+            End If
+
+                If cmbplace.Text = "Dominican" Then
+                Image1.Picture = LoadPicture(App.Path & "\Dominican.gif")
+                x = 1150
+                End If
+If lsthotel.Text = "Luxury" Then
+y = 300
+End If
+    If lsthotel.Text = "Middle Class" Then
+    y = 200
+    End If
+        If lsthotel.Text = "Economy" Then
+        y = 125
+        End If
+
+If cmblength.Text = "One Week" Then
+i = 1
+End If
+    If cmblength.Text = "Two Weeks" Then
+    i = 2
+    End If
+        If cmblength.Text = "Three Weeks" Then
+        i = 3
+        End If
+            If cmblength = "Four Weeks" Then
+            i = 4
+            End If
+                If cmblength = "Five Weeks" Then
+                i = 5
+                End If
+If Option1.Value = True Then
+m = 200
+End If
+    If Option2.Value = True Then
+    m = 0
+    End If
+    
+ 
+End Sub
+
+
+
